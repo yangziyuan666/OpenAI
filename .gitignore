@@ -1,0 +1,32 @@
+# IAR build outputs and generated files
+Debug*/
+**/Debug*/
+**/Debug_*/
+**/Debug_m7_*/
+**/BrowseInfo/
+**/Obj/
+**/Exe/
+**/*.o
+**/*.out
+**/*.hex
+**/*.map
+**/*.pbi
+**/*.pbd
+**/*.pbw
+**/*.browse
+**/*.dep
+**/*.sim
+**/*.log
+
+# Local IDE/session state
+**/*.ewt
+**/*.ewp.settings
+**/settings/*.dbgdt
+**/settings/*.wsdt
+
+# Temporary files
+*.tmp
+*.bak
+*.orig
+Thumbs.db
+desktop.ini
