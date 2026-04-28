@@ -129,6 +129,67 @@ git push -u origin main
 
 如果你使用 GitHub Desktop，也可以直接把这个目录作为本地仓库发布。
 
+## 当前 GitHub 同步状态
+
+本目录已经初始化为独立 Git 仓库，并已成功推送到 GitHub。
+
+```text
+本地目录：F:\CYT4BB7\CYT4BB\交流仓库
+远端仓库：https://github.com/yangziyuan666/OpenAI.git
+分支：main
+```
+
+检查当前状态：
+
+```powershell
+cd /d "F:\CYT4BB7\CYT4BB\交流仓库"
+git status
+git remote -v
+```
+
+每次新增日志、分析结论或任务后，上传到 GitHub：
+
+```powershell
+cd /d "F:\CYT4BB7\CYT4BB\交流仓库"
+git add .
+git commit -m "add debug round"
+git push
+```
+
+如果提示没有可提交内容，说明文件没有变化：
+
+```text
+nothing to commit, working tree clean
+```
+
+如果 `git push` 报网络错误，例如：
+
+```text
+Recv failure: Connection was reset
+Failed to connect to github.com port 443
+```
+
+通常是 Git 没走浏览器代理。当前本机曾使用过的代理端口是：
+
+```text
+http://127.0.0.1:33210
+```
+
+可以只给本仓库配置代理：
+
+```powershell
+cd /d "F:\CYT4BB7\CYT4BB\交流仓库"
+git config --local http.proxy http://127.0.0.1:33210
+git config --local https.proxy http://127.0.0.1:33210
+git push
+```
+
+如果代理端口变化，需要把 `33210` 换成当前浏览器代理端口。可以在 Windows 代理设置里查看，或用 PowerShell 查看：
+
+```powershell
+Get-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings' | Select-Object ProxyEnable,ProxyServer,AutoConfigURL
+```
+
 ## 与圆环任务书的关系
 
 圆环开发的总任务书在：
